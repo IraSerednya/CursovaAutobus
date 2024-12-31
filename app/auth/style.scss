@@ -1,6 +1,5 @@
 .auth {
-    display: flex;
-    height: 100vh;
+
   
     & > div {
       height: 100%; /* Повна висота для обох частин */
@@ -18,6 +17,7 @@
       padding-left: 20px;
       padding-right: 20px;
       height: 100%;
+      background-color: white;
     }
   
     /* Правая частина екрану з синім фоном */
