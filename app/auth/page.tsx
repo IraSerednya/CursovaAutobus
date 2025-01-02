@@ -12,10 +12,10 @@ export default function Auth() {
         <div className="auth__select-inner">
           <FaBusAlt style={{ color: "#2563EB", width: "48px", height: "48px" }} />
           <h1 className="welcomeText">Welcome to ExpressBus</h1>
-          <Link href="/sing">
+          <Link href="/auth/singIn">
             <button className="button-blue">Sign in</button> {/* Повністю синя кнопка */}
           </Link>
-          <Link href="/register">
+          <Link href="/auth/role">
             <button className="button-transparent">Register</button> {/* Прозора кнопка з синім ободком */}
           </Link>
         </div>

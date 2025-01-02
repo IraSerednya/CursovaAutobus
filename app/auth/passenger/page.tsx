@@ -1,6 +1,5 @@
 "use client"
 import InputEmail from "@/components/shared/form/inputEmail";
-import InputLicense from "@/components/shared/form/inputLicense";
 import InputPassword from "@/components/shared/form/inputPasswords";
 import InputPhone from "@/components/shared/form/inputPhone";
 import InputText from "@/components/shared/form/inputText";
@@ -14,10 +13,9 @@ interface FormValues {
     lastName: string;
     email: string;
     phone: string;
-    license: string;
 }
 
-export default function Driver() {
+export default function Passenger() {
     const {
         register,
         formState: { errors, isValid },
@@ -39,8 +37,8 @@ export default function Driver() {
                     onSubmit={handleSubmit(onSubmit)}
                     className="w-full max-w-md bg-white p-6 rounded-lg shadow-md"
                 >
-                    <h1 className="text-2xl font-bold text-gray-800 mb-2 text-center">Driver Registration</h1>
-                    <p className="text-center mb-4 text-[#4B5563]">Create your driver account</p>
+                    <h1 className="text-2xl font-bold text-gray-800 mb-2 text-center">Passenger Registration</h1>
+                    <p className="text-center mb-4 text-[#4B5563]">Create your passenger account</p>
                     <div className="flex justify-between flex-wrap">
                         <InputText title="First Name" name="firstName" register={register} errors={errors} />
                         <InputText title="Last Name" name="lastName" register={register} errors={errors} />
@@ -49,7 +47,7 @@ export default function Driver() {
                     <InputEmail register={register} errors={errors} watch={watch} />
 
                 <InputPassword register={register} errors={errors} watch={watch}/>
-                    <InputLicense register={register} errors={errors} watch={watch}/>
+                   
                     <input
                     disabled={!isValid}
                         type="submit"
