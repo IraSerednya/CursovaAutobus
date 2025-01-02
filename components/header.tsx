@@ -5,8 +5,13 @@ export default function Header() {
   return (
       <div className="flex gap-3 relative z-10">
       <Link href="/auth">Auth</Link>
-      <Link href="/auth/role">Role</Link>
-      <Link href="/auth/driver">Driver</Link>
+      <Link href="/auth/role">Auth Role</Link>
+      <Link href="/auth/driver">Auth Driver</Link>
+      <Link href="/auth/passenger">Auth Passenger</Link>
+
+      <Link href="/driver/">Driver</Link>
+      <Link href="/passenger/">Passenger</Link>     
+
     </div>
   );
 }

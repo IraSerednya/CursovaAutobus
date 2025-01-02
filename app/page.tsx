@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="">
       <main className="flex gap-3">
-main page
+        main page
       </main>
       <footer className="">
       

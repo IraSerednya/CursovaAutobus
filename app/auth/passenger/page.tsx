@@ -15,7 +15,7 @@ interface FormValues {
     phone: string;
 }
 
-export default function Passenger() {
+export default function PassengerAuth() {
     const {
         register,
         formState: { errors, isValid },

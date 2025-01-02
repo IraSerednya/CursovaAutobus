@@ -11,6 +11,7 @@ interface Props {
     watch: UseFormWatch<FormValues>;
     className?:string;
 }
+
 export default function InputPhone({register, errors, watch, className}:Props){
     const phone = watch("phone", "");
     const emptyPhone = phone === "" ? "pl-6":"";

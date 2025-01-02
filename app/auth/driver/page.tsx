@@ -17,7 +17,7 @@ interface FormValues {
     license: string;
 }
 
-export default function Driver() {
+export default function DriverAuth() {
     const {
         register,
         formState: { errors, isValid },
