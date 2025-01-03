@@ -66,19 +66,13 @@ const CustomDatePicker = ({
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <div
-                        style={{
-                          position: "absolute",
-                          left: "50%",
-                          transform: "translateX(-50%)",
-                        }}
-                      >
+     
                         <CalendarTodayIcon
                           style={{
                             cursor: "pointer",
                           }}
                         />
-                      </div>
+                 
                     </InputAdornment>
                   ),
                 }}
