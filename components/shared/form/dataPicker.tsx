@@ -44,16 +44,23 @@ const CustomDatePicker = ({
         rules={{ required: `${title} is required` }}
         render={({ field }: any) => (
           <DatePicker
-            className="w-[588px]"
+            className="w-[288px]"
             selected={field.value}
             onChange={(date: Date | null) => {
               setSelectedDate(date);
               field.onChange(date); // Передаємо значення в react-hook-form
             }}
+            placeholderText="MM/DD/YYYY HH:MM" // Placeholder для дати й часу
+            showTimeSelect // Включає вибір часу
+            timeFormat="HH:mm" // Формат часу
+            timeIntervals={15} // Інтервали часу (15 хвилин)
+            timeCaption="Time" // Підпис для вибору часу
+            dateFormat="MM/dd/yyyy h:mm aa" // Формат дати та часу
             customInput={
               <TextField
                 label={title}
                 {...field}
+                placeholder="MM/DD/YYYY HH:MM" // Додатковий placeholder
                 error={!!errors[name]}
                 helperText={errors[name]?.message}
                 InputProps={{
