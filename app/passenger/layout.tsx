@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import Header from "@/components/header";
 import HeaderPassenger from "@/components/shared/passenger/headerPassenger";
-
-
 
 export default function RootLayout({
   children,
@@ -12,9 +9,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-        <header className="">
-        <HeaderPassenger />
-        {children}
-        </header>
+    <div className="flex flex-col h-[100vh]">
+      <HeaderPassenger className="h-[60px] flex items-center border-t-1 border-[#E5E7EB] " />
+      <div className="grow bg-[#F9FAFB]">{children}</div>
+    </div>
   );
 }

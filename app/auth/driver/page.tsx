@@ -25,7 +25,7 @@ export default function DriverAuth() {
         reset,
         watch,
     } = useForm({ mode: "onChange" });
- 
+
     const onSubmit = (data: SubmitHandler<FormValues>) => {
         alert("Form submitted with data: " + JSON.stringify(data));
         reset();
@@ -48,7 +48,7 @@ export default function DriverAuth() {
                     <InputPhone register={register} errors={errors} watch={watch}/>
                     <InputEmail register={register} errors={errors} watch={watch} />
 
-                <InputPassword register={register} errors={errors} watch={watch}/>
+                    <InputPassword register={register} errors={errors} watch={watch}/>
                     <InputLicense register={register} errors={errors} watch={watch}/>
                     <input
                     disabled={!isValid}

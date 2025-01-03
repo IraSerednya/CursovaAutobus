@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "@/components/header";
+
 import HeaderDriver from "@/components/shared/driver/headerDriver";
-
-
 
 export default function RootLayout({
   children,
@@ -11,9 +9,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-        <header className="">
-        <HeaderDriver />
-        {children}
-        </header>
+    <div className="flex flex-col h-[100vh]">
+      <HeaderDriver className="h-[60px] flex items-center border-b-2 border-[#E5E7EB] " />
+      <div className="grow bg-[#F9FAFB]">{children}</div>
+    </div>
   );
 }
