@@ -1,36 +1,68 @@
+"use client";
+import React, { useState } from "react";
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormHelperText,
+} from "@mui/material";
+import { cn } from "@/lib/utils";
+import { FieldErrors, UseFormRegister } from "react-hook-form";
+import { FormValues } from "@/types/form.types";
 
-'use client'
-import React from "react";
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-interface Props{
-    selectedValue: string;
-    setSelectedValue:(value:string)=>void;
+interface Props {
+  register: UseFormRegister<FormValues>;
+  errors: FieldErrors<FormValues>;
+  className?: string;
+  passengersLength: number[];
+  handleChangeVariantBus: (value: number) => void;
+  IndexSelectVariantBus: number | null;
 }
 
-const MaterialUISelect = ({selectedValue, setSelectedValue}: Props) => {
-  
-
+const MaterialUISelect = ({
+  className,
+  register,
+  errors,
+  passengersLength,
+  handleChangeVariantBus,
+  IndexSelectVariantBus,
+}: Props) => {
+  const [selectedValue, setSelectedValue] = useState<string | null>(
+    IndexSelectVariantBus
+  );
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setSelectedValue(event.target.value as string);
+    const value = event.target.value as number; // Приводимо значення до числа
+    setSelectedValue(value); // Оновлюємо локальний стан для відображення вибраного елемента
+    handleChangeVariantBus(value); // Викликаємо функцію-обробник
   };
 
   return (
-    <FormControl fullWidth variant="outlined" sx={{ marginTop: 2 }}>
+    <FormControl
+      fullWidth
+      variant="outlined"
+      className={cn("", className)}
+      error={!!errors}
+    >
       <InputLabel id="select-label">Select an Option</InputLabel>
       <Select
+        sx={{ top: "4px", height: "42px" }}
+        {...register("selectBusLayout", {
+          required: "This field is required", // Повідомлення про помилку
+        })}
         labelId="select-label"
-        value={selectedValue}
+        value={selectedValue ?? ""} // Використання локального стану для відображення вибору
         onChange={handleChange}
-        label="Select an Option"
+        label="Select Bus Layout"
       >
-        <MenuItem value="" disabled>
-          <em>Choose an option</em>
-        </MenuItem>
-        <MenuItem value="option1">Option 1</MenuItem>
-        <MenuItem value="option2">Option 2</MenuItem>
-        <MenuItem value="option3">Option 3</MenuItem>
+        {passengersLength.map((e, index) => (
+          <MenuItem key={index} value={index}>
+            Bus {index + 1}: {e} seats
+          </MenuItem>
+        ))}
       </Select>
+      {errors && <FormHelperText>{errors.root?.message}</FormHelperText>}
     </FormControl>
   );
 };
